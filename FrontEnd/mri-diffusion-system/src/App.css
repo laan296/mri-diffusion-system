@@ -1,0 +1,58 @@
+/* MRI扩散系统应用样式 */
+
+/* 主应用容器样式 */
+.app-container {
+  @apply flex flex-col min-h-screen bg-[#0a0c10] text-slate-200;
+  /* 移除 h-screen 和 max-h-screen，允许容器高度根据内容调整 */
+}
+/* 主内容区域样式 */
+.main-content {
+  @apply flex-1 grid grid-cols-[1.5fr_auto_1.5fr] gap-6 p-6 min-h-0;
+}
+
+/* 侧边区域样式 */
+.side-section {
+  @apply flex flex-col gap-2;
+}
+
+/* 模态信息栏样式 */
+.modality-info {
+  @apply flex justify-between items-center text-[10px] font-mono;
+}
+
+/* 源模态信息样式 */
+.source-modality {
+  @apply text-emerald-500;
+}
+
+/* 目标模态信息样式 */
+.target-modality {
+  @apply text-blue-500;
+}
+
+/* 操作面板容器样式 */
+.action-panel-container {
+  @apply flex items-center justify-center;
+}
+
+/* 底部区域样式 */
+.footer-content {
+  @apply min-h-[300px] grid grid-rows-2 gap-6 p-6 pt-0;
+  /* 使用 min-h 而不是固定的 h-1/3，允许高度根据内容调整 */
+}
+/* 医疗面板样式 */
+.medical-panel {
+  @apply bg-slate-900/40 border border-slate-800 rounded-lg backdrop-blur-md relative overflow-hidden;
+}
+
+/* 比较模式面板样式 */
+.comparison-panel {
+  @apply medical-panel p-2;
+}
+
+/* 历史记录面板样式 */
+/* 在 App.css 中添加 */
+.history-panel {
+  @apply medical-panel p-4 overflow-auto;
+  /* 添加 overflow-auto，当内容超出时显示滚动条 */
+}

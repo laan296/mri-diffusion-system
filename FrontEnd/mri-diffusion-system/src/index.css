@@ -1,0 +1,45 @@
+/* Tailwind CSS 指令 */
+/* 导入基础样式 */
+@tailwind base;
+/* 导入组件样式 */
+@tailwind components;
+/* 导入工具类样式 */
+@tailwind utilities;
+
+/* CSS 变量定义 */
+:root {
+  --neon-green: #10b981; /* 霓虹绿色，用于强调和交互元素 */
+  --neon-blue: #3b82f6;  /* 霓虹蓝色，用于强调和交互元素 */
+}
+
+/* 全局 body 样式 */
+body {
+  /* 使用 Tailwind 工具类设置背景色、文本颜色、抗锯齿和字体 */
+  @apply bg-[#0a0c10] text-slate-200 antialiased font-sans;
+  /* 添加背景径向渐变效果，增强视觉层次感 */
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
+}
+
+/* 医疗面板样式 */
+.medical-panel {
+  /* 使用 Tailwind 工具类设置背景、边框、圆角、 backdrop 模糊、相对定位和隐藏溢出 */
+  @apply bg-slate-900/40 border border-slate-800 rounded-lg backdrop-blur-md relative overflow-hidden;
+}
+
+/* 玻璃拟态效果 */
+.glass-morphism {
+  /* 设置半透明背景 */
+  background: rgba(15, 23, 42, 0.6);
+  /* 添加背景模糊效果 */
+  backdrop-filter: blur(12px);
+  /* 添加半透明边框 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 隐藏滚动条但保留滚动功能 */
+/* 针对 WebKit 浏览器（Chrome、Safari 等） */
+.no-scrollbar::-webkit-scrollbar { 
+  display: none; 
+}
