@@ -1,0 +1,114 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10V0Z" fill="#4B5563"/>
+    </marker>
+    <marker id="arrowLight" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10V0Z" fill="#94A3B8"/>
+    </marker>
+    <style>
+      .title { font: 700 30px 'Times New Roman', Georgia, serif; fill: #111827; }
+      .panel { font: 700 20px 'Times New Roman', Georgia, serif; fill: #111827; }
+      .label { font: 700 18px 'Times New Roman', Georgia, serif; fill: #111827; }
+      .body { font: 400 17px 'Times New Roman', Georgia, serif; fill: #374151; }
+      .small { font: 400 15px 'Times New Roman', Georgia, serif; fill: #4B5563; }
+      .mono { font: 700 16px 'Courier New', monospace; fill: #1F2937; }
+      .mini { font: 700 14px 'Times New Roman', Georgia, serif; fill: #1F2937; }
+      .caption { font: 400 16px 'Times New Roman', Georgia, serif; fill: #4B5563; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="white"/>
+
+  <text x="84" y="72" class="title">SelfRDB for MRI Modality Translation</text>
+
+  <rect x="70" y="104" width="1460" height="430" rx="10" fill="white" stroke="#C7CFD9" stroke-width="1.8"/>
+  <text x="98" y="140" class="panel">A. Inference pipeline</text>
+
+  <rect x="112" y="182" width="195" height="255" rx="10" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <rect x="157" y="226" width="105" height="105" rx="14" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="1.2"/>
+  <ellipse cx="209.5" cy="278.5" rx="38" ry="31" fill="#9CA3AF"/>
+  <ellipse cx="209.5" cy="278.5" rx="24" ry="19" fill="#F8FAFC"/>
+  <ellipse cx="209.5" cy="278.5" rx="13" ry="10" fill="#9CA3AF"/>
+  <text x="175" y="370" class="label">Source image</text>
+  <text x="170" y="400" class="mono">y  (source MRI)</text>
+
+  <rect x="358" y="182" width="235" height="255" rx="10" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="409" y="230" class="label">Input processing</text>
+  <rect x="410" y="258" width="130" height="42" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="445" y="286" class="mono">grayscale</text>
+  <rect x="410" y="316" width="130" height="42" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="446" y="344" class="mono">resize/pad</text>
+  <rect x="410" y="374" width="130" height="42" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="443" y="402" class="mono">normalize</text>
+
+  <rect x="644" y="170" width="330" height="278" rx="10" fill="white" stroke="#B6C3D3" stroke-width="1.8"/>
+  <text x="743" y="216" class="label">Diffusion bridge</text>
+  <rect x="694" y="246" width="230" height="54" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="748" y="279" class="mono">q(x_t | x_0, y)</text>
+  <rect x="694" y="322" width="230" height="54" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="720" y="355" class="mono">construct intermediate state x_t</text>
+  <text x="703" y="410" class="small">A bridge is formed between the condition image</text>
+  <text x="721" y="432" class="small">and the target modality generation path.</text>
+
+  <rect x="1025" y="156" width="350" height="306" rx="10" fill="white" stroke="#B6C3D3" stroke-width="1.8"/>
+  <text x="1113" y="202" class="label">Self-recursive generator</text>
+  <rect x="1078" y="236" width="244" height="54" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1110" y="269" class="mono">G(theta)(x_t, t, y, x_0^r)</text>
+  <rect x="1078" y="311" width="244" height="54" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1153" y="344" class="mono">repeat R times</text>
+  <rect x="1078" y="386" width="244" height="54" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1111" y="419" class="mono">until consistency threshold</text>
+
+  <rect x="1412" y="186" width="78" height="246" rx="10" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <path d="M1451 220L1451 394" stroke="#94A3B8" stroke-width="2.5" marker-end="url(#arrowLight)"/>
+  <text x="1442" y="208" class="mini">t</text>
+  <text x="1438" y="414" class="mini">0</text>
+
+  <rect x="1204" y="612" width="220" height="178" rx="10" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <rect x="1261" y="653" width="106" height="86" rx="14" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="1.2"/>
+  <ellipse cx="1314" cy="696" rx="36" ry="29" fill="#9CA3AF"/>
+  <ellipse cx="1314" cy="696" rx="22" ry="17" fill="#F8FAFC"/>
+  <ellipse cx="1314" cy="696" rx="12" ry="9" fill="#9CA3AF"/>
+  <text x="1251" y="769" class="label">Generated image</text>
+  <text x="1246" y="794" class="mono">x_0  (target MRI)</text>
+
+  <path d="M307 309L358 309" stroke="#4B5563" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <path d="M593 309L644 309" stroke="#4B5563" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <path d="M974 309L1025 309" stroke="#4B5563" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <path d="M1200 462L1200 580L1314 580L1314 612" stroke="#4B5563" stroke-width="2.6" fill="none" marker-end="url(#arrow)"/>
+
+  <path d="M1200 462C1200 520 1058 551 1058 612" stroke="#94A3B8" stroke-width="2.2" stroke-dasharray="8 8" fill="none" marker-end="url(#arrowLight)"/>
+  <text x="1077" y="598" class="small">posterior sampling</text>
+
+  <circle cx="809" cy="309" r="14" fill="#111827"/>
+  <text x="804" y="315" style="font:700 13px 'Times New Roman', Georgia, serif; fill:white;">t</text>
+
+  <rect x="70" y="574" width="1082" height="216" rx="10" fill="white" stroke="#C7CFD9" stroke-width="1.8"/>
+  <text x="98" y="610" class="panel">B. Training supervision</text>
+
+  <rect x="114" y="648" width="232" height="96" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="182" y="681" class="label">Actual pair</text>
+  <text x="161" y="715" class="mono">(x_t, x_(t-1))</text>
+
+  <rect x="394" y="648" width="262" height="96" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="452" y="681" class="label">Synthesized pair</text>
+  <text x="436" y="715" class="mono">(x_t, x_hat_(t-1))</text>
+
+  <rect x="748" y="634" width="194" height="124" rx="8" fill="white" stroke="#B6C3D3" stroke-width="1.5"/>
+  <text x="800" y="684" class="label">Discriminator</text>
+  <text x="804" y="715" class="mono">D(theta)</text>
+
+  <rect x="1004" y="648" width="104" height="96" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="1028" y="688" class="label">Real</text>
+  <text x="1022" y="720" class="small">or fake</text>
+
+  <path d="M346 696L394 696" stroke="#4B5563" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <path d="M656 696L748 696" stroke="#4B5563" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <path d="M942 696L1004 696" stroke="#4B5563" stroke-width="2.6" marker-end="url(#arrow)"/>
+
+  <path d="M1314 612C1314 568 1125 560 846 560C846 560 846 592 846 634" stroke="#94A3B8" stroke-width="2.2" stroke-dasharray="8 8" fill="none" marker-end="url(#arrowLight)"/>
+  <text x="918" y="550" class="small">training-time feedback only</text>
+
+  <text x="84" y="842" class="caption">Figure. Simplified journal-style overview of SelfRDB. The model translates a source MRI to a target modality through a diffusion bridge, a self-recursive generator, and posterior sampling. The discriminator is used only during training to distinguish actual and synthesized transition pairs.</text>
+</svg>

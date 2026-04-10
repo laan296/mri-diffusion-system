@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { Zap, Loader2, AlertCircle } from 'lucide-react';
+import { Zap, Loader2 } from 'lucide-react';
 import { useStore } from '../store/useStore';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000';
 
 export const ActionPanel = () => {
   // 注意：这里我们从 store 中额外取出了 sourceImageFile (原始文件对象)
@@ -24,7 +26,7 @@ export const ActionPanel = () => {
 
     try {
       // 2. 发送 POST 请求到 Flask 后端 (注意地址和端口)
-      const response = await axios.post('http://127.0.0.1:5000/api/generate', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/generate`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -32,7 +34,7 @@ export const ActionPanel = () => {
 
       // 3. 处理返回结果
       if (response.data.success) {
-        // 将后端回传的拼接了 YOLO 框的图片 URL 更新到右侧
+        // 将后端回传的生成结果图片 URL 更新到右侧
         setResultImage(response.data.result_url);
       } else {
         console.error("生成失败:", response.data.message);

@@ -1,0 +1,25 @@
+name: selfrdb
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy<2
+  - pytorch::pytorch=1.13.1
+  - pytorch::torchvision=0.14.1
+  - pytorch::pytorch-cuda=11.7
+  - flask
+  - flask-cors
+  - opencv
+  - pillow
+  - scikit-image
+  - matplotlib
+  - pyyaml
+  - ninja
+  - rich
+  - omegaconf
+  - pip
+  - pip:
+      - lightning==2.2.4
+      - jsonargparse>=4.27.7
