@@ -91,9 +91,11 @@ Install Node.js 20+ first (recommended: nvm).
 ```bash
 cd FrontEnd/mri-diffusion-system
 npm install
+#curl ifconfig.me
 echo "VITE_API_BASE_URL=http://<YOUR_EIP>:5000" > .env.production
 npm run build
 npm run preview -- --host 0.0.0.0 --port 5173
+#http://8.148.186.164:5173
 ```
 
 Open: `http://<YOUR_EIP>:5173`

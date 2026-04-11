@@ -1,45 +1,48 @@
-/* Tailwind CSS 指令 */
-/* 导入基础样式 */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
 @tailwind base;
-/* 导入组件样式 */
 @tailwind components;
-/* 导入工具类样式 */
 @tailwind utilities;
 
-/* CSS 变量定义 */
 :root {
-  --neon-green: #10b981; /* 霓虹绿色，用于强调和交互元素 */
-  --neon-blue: #3b82f6;  /* 霓虹蓝色，用于强调和交互元素 */
+  --bg-1: #071118;
+  --bg-2: #0c1e29;
+  --surface: rgba(12, 20, 30, 0.72);
+  --surface-border: rgba(137, 186, 216, 0.2);
+  --text-main: #e8f3fb;
+  --text-muted: #9db3c3;
+  --accent-1: #53ffcf;
+  --accent-2: #7fb2ff;
 }
 
-/* 全局 body 样式 */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
-  /* 使用 Tailwind 工具类设置背景色、文本颜色、抗锯齿和字体 */
-  @apply bg-[#0a0c10] text-slate-200 antialiased font-sans;
-  /* 添加背景径向渐变效果，增强视觉层次感 */
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
+  margin: 0;
+  color: var(--text-main);
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(900px 500px at 6% 2%, rgba(83, 255, 207, 0.18), transparent 62%),
+    radial-gradient(900px 700px at 100% 8%, rgba(127, 178, 255, 0.2), transparent 65%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* 医疗面板样式 */
-.medical-panel {
-  /* 使用 Tailwind 工具类设置背景、边框、圆角、 backdrop 模糊、相对定位和隐藏溢出 */
-  @apply bg-slate-900/40 border border-slate-800 rounded-lg backdrop-blur-md relative overflow-hidden;
+img {
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-/* 玻璃拟态效果 */
-.glass-morphism {
-  /* 设置半透明背景 */
-  background: rgba(15, 23, 42, 0.6);
-  /* 添加背景模糊效果 */
-  backdrop-filter: blur(12px);
-  /* 添加半透明边框 */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* 隐藏滚动条但保留滚动功能 */
-/* 针对 WebKit 浏览器（Chrome、Safari 等） */
-.no-scrollbar::-webkit-scrollbar { 
-  display: none; 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
