@@ -1,4 +1,4 @@
-import { useDropzone } from 'react-dropzone';
+﻿import { useDropzone } from 'react-dropzone';
 import { Upload } from 'lucide-react';
 import { useStore } from '../store/useStore';
 
@@ -37,17 +37,16 @@ export const UploadZone = () => {
               src={sourceImage}
               style={{ transform: `scale(${zoomScale})` }}
               className="image-preview"
-              alt="Source MRI"
+              alt="source-mri"
             />
           </div>
         ) : (
-          <div className="upload-empty group">
+          <div className="upload-empty">
             <div className="upload-empty-icon-wrap">
-              <div className="upload-empty-glow" />
               <Upload className="upload-empty-icon" />
             </div>
-            <p className="upload-empty-title">点击或拖拽上传图像</p>
-            <p className="upload-empty-hint">SUPPORTS JPG, PNG, DICOM, NII</p>
+            <p className="upload-empty-title">{'\u4e0a\u4f20\u6e90 MRI \u56fe\u50cf'}</p>
+            <p className="upload-empty-hint">{'\u652f\u6301 JPG\u3001PNG\u3001DICOM\u3001NII'}</p>
           </div>
         )}
       </div>

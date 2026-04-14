@@ -1,18 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg-1: #071118;
-  --bg-2: #0c1e29;
-  --surface: rgba(12, 20, 30, 0.72);
-  --surface-border: rgba(137, 186, 216, 0.2);
-  --text-main: #e8f3fb;
-  --text-muted: #9db3c3;
-  --accent-1: #53ffcf;
-  --accent-2: #7fb2ff;
+  --bg-carbon: #0c0f14;
+  --bg-graphite: #121721;
+  --bg-midnight: #192131;
+
+  --card-base: rgba(27, 34, 47, 0.76);
+  --card-edge: rgba(204, 218, 238, 0.19);
+  --card-edge-soft: rgba(204, 218, 238, 0.12);
+
+  --ink-main: #edf2fa;
+  --ink-soft: #ced7e6;
+  --ink-muted: #a2afc2;
+  --ink-dim: #8694aa;
+
+  --accent-cyan: #4ea3ff;
+  --accent-ice: #7cc4ff;
+  --accent-teal: #67c4d6;
+  --accent-violet: #8f98ff;
+  --accent-amber: #f7b15c;
+  --accent-rose: #f3a2bd;
 }
 
 * {
@@ -27,12 +36,13 @@ body,
 
 body {
   margin: 0;
-  color: var(--text-main);
-  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  color: var(--ink-main);
+  font-family: 'SF Pro Display', 'SF Pro Text', 'PingFang SC', 'Helvetica Neue', 'Inter', Helvetica, Arial, sans-serif;
   background:
-    radial-gradient(900px 500px at 6% 2%, rgba(83, 255, 207, 0.18), transparent 62%),
-    radial-gradient(900px 700px at 100% 8%, rgba(127, 178, 255, 0.2), transparent 65%),
-    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    radial-gradient(880px 460px at 10% -8%, rgba(92, 122, 168, 0.19), transparent 76%),
+    radial-gradient(740px 400px at 96% -8%, rgba(101, 124, 167, 0.17), transparent 78%),
+    radial-gradient(720px 340px at 52% 116%, rgba(73, 93, 129, 0.15), transparent 80%),
+    linear-gradient(170deg, var(--bg-carbon), var(--bg-graphite) 46%, var(--bg-midnight) 100%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

@@ -1,4 +1,4 @@
-import { Download, ScanEye, CheckCircle2 } from 'lucide-react';
+﻿import { Download, ScanEye, CheckCircle2 } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { useState } from 'react';
 
@@ -57,14 +57,14 @@ export const ResultZone = () => {
     <div className="result-shell">
       {!resultImage && !isGenerating ? (
         <div className="result-empty">
-          <ScanEye size={44} className="mb-3 opacity-70" />
-          <span className="result-empty-title">等待推理开始</span>
-          <span className="result-empty-hint">上传 T1 图像后点击中间按钮</span>
+          <ScanEye size={40} className="mb-3 opacity-70" />
+          <span className="result-empty-title">{'\u7b49\u5f85\u751f\u6210\u7ed3\u679c'}</span>
+          <span className="result-empty-hint">{'\u4e0a\u4f20\u6e90\u56fe\u50cf\u540e\u70b9\u51fb\u4e2d\u95f4\u6309\u94ae\u5f00\u59cb\u63a8\u7406'}</span>
         </div>
       ) : isGenerating ? (
         <div className="result-loading">
           <div className="result-spinner" />
-          <div className="result-loading-copy">DIFFUSION RECONSTRUCTING...</div>
+          <div className="result-loading-copy">{'\u6b63\u5728\u751f\u6210\u56fe\u50cf\uff0c\u8bf7\u7a0d\u5019...'}</div>
         </div>
       ) : (
         <div className="image-stage">
@@ -72,7 +72,7 @@ export const ResultZone = () => {
             src={resultImage}
             style={{ transform: `scale(${zoomScale})` }}
             className="image-preview"
-            alt="Result"
+            alt="generated-mri"
           />
           <button
             onClick={handleDownload}
@@ -80,11 +80,12 @@ export const ResultZone = () => {
             className={`result-download-btn ${
               isDownloading ? 'result-download-btn-disabled' : ''
             }`}
+            aria-label="download-generated-image"
           >
             {isDownloading ? (
-              <div className="w-4 h-4 border-2 border-[#b8fff0] border-t-transparent rounded-full animate-spin" />
+              <div className="result-download-spinner" />
             ) : downloadSuccess ? (
-              <CheckCircle2 size={18} className="text-[#7ff4b7]" />
+              <CheckCircle2 size={18} className="text-[#7ea7c7]" />
             ) : (
               <Download size={18} />
             )}
